@@ -154,3 +154,34 @@ if configuration.get('scheduler.enabled'):
 # -------------------------------------------------------------------------
 # auth.enable_record_versioning(db)
 
+db = DAL('sqlite://cinemaDB.sqlite', pool_size=0, migrate=True)
+
+db.define_table('films',
+    Field('titre'),
+    Field('description'),
+    Field('date_sortie', 'date'),
+    Field('realisateur'),
+    Field('duree', 'string'),
+    format='%(titre)s'
+)
+
+db.define_table('utilisateurs',
+    Field('nom','string'),
+    Field('prenom'),
+    Field('email'),
+    Field('mot_de_passe'),
+    format='%(nom)s %(prenom)s',
+)
+db.define_table('affiches',
+    Field('numero_affiche', 'string'),
+    Field('date_projection', 'datetime'),
+    Field('image', 'upload'),
+    Field('film_id', 'reference films'),
+    format='%(numero_affiche)s'
+)
+
+db.define_table('reservations',
+    Field('nombre_places', 'integer'),
+    Field('affiche_id', 'reference affiches'),
+    Field('utilisateur_id', 'reference utilisateurs'),
+)
