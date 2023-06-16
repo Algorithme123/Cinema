@@ -160,6 +160,7 @@ db.define_table('films',
     Field('titre'),
     Field('description'),
     Field('date_sortie', 'date'),
+    Field('image_film', 'upload'),
     Field('realisateur'),
     Field('duree', 'string'),
     format='%(titre)s'

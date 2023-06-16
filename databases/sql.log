@@ -53,3 +53,40 @@ CREATE TABLE "auth_cas"(
     "renew" CHAR(1)
 );
 success!
+timestamp: 2023-06-16T12:25:22.652231
+CREATE TABLE "films"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "titre" CHAR(512),
+    "description" CHAR(512),
+    "date_sortie" DATE,
+    "image_film" CHAR(512),
+    "realisateur" CHAR(512),
+    "duree" CHAR(512)
+);
+success!
+timestamp: 2023-06-16T12:25:22.665343
+CREATE TABLE "utilisateurs"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "nom" CHAR(512),
+    "prenom" CHAR(512),
+    "email" CHAR(512),
+    "mot_de_passe" CHAR(512)
+);
+success!
+timestamp: 2023-06-16T12:25:22.672326
+CREATE TABLE "affiches"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "numero_affiche" CHAR(512),
+    "date_projection" TIMESTAMP,
+    "image" CHAR(512),
+    "film_id" INTEGER REFERENCES "films" ("id") ON DELETE CASCADE  
+);
+success!
+timestamp: 2023-06-16T12:25:22.679839
+CREATE TABLE "reservations"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "nombre_places" INTEGER,
+    "affiche_id" INTEGER REFERENCES "affiches" ("id") ON DELETE CASCADE  ,
+    "utilisateur_id" INTEGER REFERENCES "utilisateurs" ("id") ON DELETE CASCADE  
+);
+success!
