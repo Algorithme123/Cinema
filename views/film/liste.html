@@ -10,7 +10,6 @@
             <th>Titre</th>
             <th>Description </th>
             <th>Date_sortie</th>
-            <th>image_film</th>
             <th>Realisateur</th>
             <th>Duree</th>
             <th style="text-align: center;">Actions</th>
@@ -32,12 +31,7 @@
                 {{= row.date_sortie }}
             </td>
            
-            <td>
-                {{= row.image_film }}
-            </td>
-            <td>
-                <img src="{{=URL('static','uploads/'+ row.image_film,False) }}" alt="">
-            </td>
+        
             <td>
                 {{= row.realisateur }}
             </td>

@@ -14,7 +14,7 @@ def create_film():
     form = SQLFORM(db.films)
     if form.process().accepted:
         session.flash = 'Films créée'
-        redirect(URL('film', 'liste_films'))
+        redirect(URL('films', 'liste_films'))
     return dict(form=form)
 
 

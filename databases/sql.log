@@ -1,4 +1,4 @@
-timestamp: 2023-06-16T12:52:35.322902
+timestamp: 2023-06-16T16:33:05.650920
 CREATE TABLE "auth_user"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "first_name" CHAR(128),
@@ -10,21 +10,21 @@ CREATE TABLE "auth_user"(
     "registration_id" CHAR(512)
 );
 success!
-timestamp: 2023-06-16T12:52:35.332324
+timestamp: 2023-06-16T16:33:05.662191
 CREATE TABLE "auth_group"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "role" CHAR(512),
     "description" TEXT
 );
 success!
-timestamp: 2023-06-16T12:52:35.338120
+timestamp: 2023-06-16T16:33:05.662191
 CREATE TABLE "auth_membership"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "user_id" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
     "group_id" INTEGER REFERENCES "auth_group" ("id") ON DELETE CASCADE  
 );
 success!
-timestamp: 2023-06-16T12:52:35.344738
+timestamp: 2023-06-16T16:33:05.671197
 CREATE TABLE "auth_permission"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "group_id" INTEGER REFERENCES "auth_group" ("id") ON DELETE CASCADE  ,
@@ -33,7 +33,7 @@ CREATE TABLE "auth_permission"(
     "record_id" INTEGER
 );
 success!
-timestamp: 2023-06-16T12:52:35.351506
+timestamp: 2023-06-16T16:33:05.681235
 CREATE TABLE "auth_event"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "time_stamp" TIMESTAMP,
@@ -43,7 +43,7 @@ CREATE TABLE "auth_event"(
     "description" TEXT
 );
 success!
-timestamp: 2023-06-16T12:52:35.358481
+timestamp: 2023-06-16T16:33:05.681235
 CREATE TABLE "auth_cas"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "user_id" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
@@ -53,7 +53,7 @@ CREATE TABLE "auth_cas"(
     "renew" CHAR(1)
 );
 success!
-timestamp: 2023-06-16T12:52:35.366492
+timestamp: 2023-06-16T16:33:05.694286
 CREATE TABLE "auth_user"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "first_name" CHAR(128),
@@ -70,7 +70,7 @@ CREATE TABLE "auth_user"(
     "modified_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  
 );
 success!
-timestamp: 2023-06-16T12:52:35.375790
+timestamp: 2023-06-16T16:33:05.701294
 CREATE TABLE "auth_group"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "role" CHAR(512),
@@ -82,7 +82,7 @@ CREATE TABLE "auth_group"(
     "modified_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  
 );
 success!
-timestamp: 2023-06-16T12:52:35.382337
+timestamp: 2023-06-16T16:33:05.711315
 CREATE TABLE "auth_membership"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "user_id" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
@@ -94,7 +94,7 @@ CREATE TABLE "auth_membership"(
     "modified_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  
 );
 success!
-timestamp: 2023-06-16T12:52:35.389374
+timestamp: 2023-06-16T16:33:05.711315
 CREATE TABLE "auth_permission"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "group_id" INTEGER REFERENCES "auth_group" ("id") ON DELETE CASCADE  ,
@@ -108,7 +108,7 @@ CREATE TABLE "auth_permission"(
     "modified_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  
 );
 success!
-timestamp: 2023-06-16T12:52:35.396823
+timestamp: 2023-06-16T16:33:05.726374
 CREATE TABLE "auth_event"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "time_stamp" TIMESTAMP,
@@ -118,7 +118,7 @@ CREATE TABLE "auth_event"(
     "description" TEXT
 );
 success!
-timestamp: 2023-06-16T12:52:35.402355
+timestamp: 2023-06-16T16:33:05.731380
 CREATE TABLE "auth_cas"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "user_id" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
@@ -128,18 +128,17 @@ CREATE TABLE "auth_cas"(
     "renew" CHAR(1)
 );
 success!
-timestamp: 2023-06-16T12:52:35.409422
+timestamp: 2023-06-16T16:33:05.731380
 CREATE TABLE "films"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "titre" CHAR(512),
     "description" CHAR(512),
     "date_sortie" DATE,
-    "image_film" CHAR(512),
     "realisateur" CHAR(512),
     "duree" CHAR(512)
 );
 success!
-timestamp: 2023-06-16T12:52:35.415934
+timestamp: 2023-06-16T16:33:05.742438
 CREATE TABLE "affiches"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "numero_affiche" CHAR(512),
@@ -148,7 +147,7 @@ CREATE TABLE "affiches"(
     "film_id" INTEGER REFERENCES "films" ("id") ON DELETE CASCADE  
 );
 success!
-timestamp: 2023-06-16T12:52:35.422467
+timestamp: 2023-06-16T16:33:05.751443
 CREATE TABLE "reservations"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "nombre_places" INTEGER,

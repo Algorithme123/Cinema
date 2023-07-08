@@ -1,0 +1,54 @@
+{{extend 'template.html'}} 
+
+{{ block contenu }}
+<br>
+<table class="table table-condensed">
+    <a class="primary" href="{{=URL('affiches','create_affiches')}}"><button type="button" class="btn rounded-pill btn-primary">Ajout</button></a>
+    <thead>
+        <tr>
+            <th>Numéro Affiche</th>
+            <th>Description </th>
+            <th>Date de Projection</th>
+            <th>image </th>
+            <th>Film </th>
+            <th style="text-align: center;">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{for row in affiches:}}
+        <tr>
+            <td>
+                {{= row.id }}
+            </td>
+            <td>
+                {{= row.numero_affiche }}
+            </td>
+            <td>
+                {{= row.date_projection }}
+            </td>
+            <td>
+                <td>
+                    <img src="{{=URL('static','uploads/'+ row.image,False) }}" alt="">
+                </td>
+            </td>
+           
+            <td>
+                {{= row.film_id.titre }}
+            </td>
+
+            <td style="text-align: center;">
+                
+                <a href="{{=URL('edit_affiche', args=[row.id])}}"><button type="button" class="btn rounded-pill btn-warning" >Modifier</button></a>
+
+                <a href="{{=URL('films','delete_affiche',vars={'id': row.id})}}"><button type="button" class="btn rounded-pill btn-danger">Supprimer</button></a>
+            </td>
+        </tr>
+        {{pass}}
+    </tbody>
+</table>
+{{ end }}
+
+{{  block  formulaire}}
+
+
+{{ end }}

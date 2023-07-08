@@ -6,8 +6,10 @@
 
 # ---- example index page ----
 def index():
-    response.flash = T("Hello World")
-    return dict(message=T('Welcome to web2py!'))
+    #response.flash = T("Hello World")
+    #return dict(message=T('Welcome to web2py!'))
+    rows = db().select(db.affiches.ALL)
+    return response.render('home/index.html', dict(affiches=rows))
 
 # ---- API (example) -----
 @auth.requires_login()

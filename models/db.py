@@ -163,7 +163,6 @@ db.define_table('films',
     Field('titre'),
     Field('description'),
     Field('date_sortie', 'date'),
-    Field('image_film', 'upload',uploadfolder='applications/Cinema/static/uploads'),
     Field('realisateur'),
     Field('duree', 'string'),
     format='%(titre)s'
@@ -179,7 +178,7 @@ db.define_table('films',
 db.define_table('affiches',
     Field('numero_affiche', 'string'),
     Field('date_projection', 'datetime'),
-    Field('image', 'upload'),
+    Field('image', 'upload',uploadfolder='applications/Cinema/static/uploads'),
     Field('film_id', 'reference films'),
     format='%(numero_affiche)s'
 )

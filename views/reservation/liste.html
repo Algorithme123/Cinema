@@ -1,0 +1,47 @@
+{{extend 'template.html'}} 
+
+{{ block contenu }}
+<br>
+<table class="table table-condensed">
+    <a class="primary" href="{{=URL('reservations','create_reservations')}}"><button type="button" class="btn rounded-pill btn-primary">Ajout</button></a>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre Places</th>
+            <th>Numero affiche </th>
+            <th>Nom utilisateur</th>
+            <th style="text-align: center;">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{for row in reservations:}}
+        <tr>
+            <td>
+                {{= row.id }}
+            </td>
+            <td>
+                {{= row.nombre_places }}
+            </td>
+            <td>
+                {{= row.affiche_id.numero_affiche }}
+            </td>
+            <td>
+                {{= row.utilisateur_id.first_name }}
+            </td>
+           
+            <td style="text-align: center;">
+                
+                <a href="{{=URL('edit_reservations', args=[row.id])}}"><button type="button" class="btn rounded-pill btn-warning" >Modifier</button></a>
+
+                <a href="{{=URL('films','delete_reservations',vars={'id': row.id})}}"><button type="button" class="btn rounded-pill btn-danger">Supprimer</button></a>
+            </td>
+        </tr>
+        {{pass}}
+    </tbody>
+</table>
+{{ end }}
+
+{{  block  formulaire}}
+
+
+{{ end }}
